@@ -37,13 +37,15 @@ class Room extends React.Component {
 
     const { users } = room
 
-    const list = users.map(user =>
-      <p key={user.name}>
-        {user.name}
-      </p>
-    )
+    const list = users && users.length
+      ? users.map(user =>
+        <p key={user.name}>
+          {user.name}
+        </p>
+      )
+      : <p>This room has no users</p>
 
-    console.log('room test:', room)
+    console.log('list test:', list)
 
     return <div>
       <h1>{name}</h1>
