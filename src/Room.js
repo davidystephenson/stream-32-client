@@ -40,7 +40,7 @@ class Room extends React.Component {
     const list = users && users.length
       ? users.map(user =>
         <p key={user.name}>
-          {user.name}
+          {user.name} [{user.points}]
         </p>
       )
       : <p>This room has no users</p>
