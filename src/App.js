@@ -2,6 +2,8 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
+import { Route } from 'react-router-dom'
+import Rooms from './Rooms'
 
 class App extends React.Component {
   stream = new EventSource(
@@ -14,17 +16,20 @@ class App extends React.Component {
 
       const parsed = JSON.parse(data)
 
-      this.props.dispatch({
-        type: 'ROOMS',
-        payload: parsed
-      })
+      this.props.dispatch(parsed)
 
       console.log('parsed test:', parsed)
     }
   }
 
   render () {
-    return <div>Hello world</div>
+    return <div>
+      <Route
+        path='/'
+        exact
+        component={Rooms}
+      />
+    </div>
   }
 }
 
