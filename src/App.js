@@ -4,6 +4,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
 import Rooms from './Rooms'
+import Room from './Room'
 
 class App extends React.Component {
   stream = new EventSource(
@@ -28,6 +29,10 @@ class App extends React.Component {
         path='/'
         exact
         component={Rooms}
+      />
+      <Route
+        path='/room/:name'
+        component={Room}
       />
     </div>
   }
